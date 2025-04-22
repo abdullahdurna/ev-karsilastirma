@@ -18,7 +18,7 @@ const cars = {
         charge: "25 dk (%10-80, Supercharger V3)",
         power: "384 HP",
         price: "1.550.000 TL",
-        image: "https://www.tesla.com/sites/default/files/model_y_2023/hero.jpg",
+        image: "assets/tesla.png",
         type: "suv"
     },
     mg: {
@@ -28,7 +28,7 @@ const cars = {
         charge: "40 dk (%10-80, DC 100 kW)",
         power: "156 HP",
         price: "1.100.000 TL",
-        image: "https://mg.com.tr/uploads/mg-zs-ev/mg-zs-ev-01.jpg",
+        image: "assets/mgszev.png",
         type: "suv"
     },
     renault: {
@@ -38,7 +38,7 @@ const cars = {
         charge: "30 dk (%10-80, DC 130 kW)",
         power: "218 HP",
         price: "1.350.000 TL",
-        image: "https://www.renault.com.tr/content/dam/renault/tr/meganee-tech/banner.jpg",
+        image: "assets/reno.png",
         type: "sedan"
     }
 };
