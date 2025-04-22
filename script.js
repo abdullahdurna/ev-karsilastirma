@@ -8,7 +8,7 @@ const cars = {
         power: "320 HP",
         price: "1.250.000 TL",
         // Örnek (Unsplash veya Wikimedia)
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/TOGG_T10X.jpg/1200px-TOGG_T10X.jpg",
+        image: "assets/togg.png",
         type: "suv"
     },
     tesla: {
