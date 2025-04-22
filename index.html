@@ -3,21 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ EV Karşılaştırma Aracı</title>
+    <title>⚡ Türkiye'nin Elektrikli Araç Karşılaştırma Platformu</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; padding-top: 20px; }
-        .card { border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .card-header { background-color: #0d6efd; color: white; border-radius: 15px 15px 0 0 !important; }
-        h1 { color: #0d6efd; margin-bottom: 30px; }
-        select { margin-bottom: 20px; }
+        :root {
+            --togg-blue: #003087;
+            --togg-light: #00B2E3;
+            --togg-gray: #F5F7FA;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--togg-gray);
+            padding-top: 20px;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--togg-blue) !important;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            border: none;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .card-header {
+            background: linear-gradient(135deg, var(--togg-blue), var(--togg-light));
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            font-weight: bold;
+        }
+        h1 {
+            color: var(--togg-blue);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        select {
+            margin-bottom: 20px;
+            border: 2px solid var(--togg-light);
+        }
+        .feature-icon {
+            color: var(--togg-light);
+            margin-right: 8px;
+        }
+        footer {
+            background: var(--togg-blue);
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .card {
+                margin-bottom: 15px;
+            }
+            select {
+                font-size: 14px !important;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center mb-4">⚡ Elektrikli Araç Karşılaştırma</h1>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-bolt"></i> EVCompare
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-home"></i> Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-car"></i> Araçlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-chart-bar"></i> Karşılaştır</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <h1><i class="fas fa-bolt"></i> Elektrikli Araç Karşılaştırma</h1>
         
+        <!-- Filtreleme -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <input type="text" id="search" class="form-control form-control-lg" placeholder="🔍 Araç ara...">
+            </div>
+            <div class="col-md-6">
+                <select id="filter" class="form-select form-select-lg">
+                    <option value="all">Tüm Araçlar</option>
+                    <option value="suv">SUV Modeller</option>
+                    <option value="sedan">Sedan Modeller</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Karşılaştırma Alanı -->
         <div class="row">
             <!-- Araç 1 -->
             <div class="col-md-6">
@@ -29,7 +127,7 @@
                 </select>
                 <div class="card">
                     <div class="card-header">
-                        <h3 id="car1-name" class="text-center">TOGG T10X</h3>
+                        <h3 id="car1-name" class="text-center mb-0">TOGG T10X</h3>
                     </div>
                     <div class="card-body" id="car1-details">
                         <!-- JS ile dolacak -->
@@ -47,7 +145,7 @@
                 </select>
                 <div class="card">
                     <div class="card-header">
-                        <h3 id="car2-name" class="text-center">Tesla Model Y</h3>
+                        <h3 id="car2-name" class="text-center mb-0">Tesla Model Y</h3>
                     </div>
                     <div class="card-body" id="car2-details">
                         <!-- JS ile dolacak -->
@@ -55,10 +153,42 @@
                 </div>
             </div>
         </div>
+
+        <!-- Karşılaştırma Sonucu -->
+        <div class="text-center mt-4">
+            <button id="compare-btn" class="btn btn-primary btn-lg">
+                <i class="fas fa-balance-scale"></i> Karşılaştırma Sonucunu Göster
+            </button>
+            <div id="comparison-result" class="mt-3 alert alert-info" style="display: none;"></div>
+        </div>
+
+        <!-- Grafik -->
+        <div class="card mt-5">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="fas fa-chart-line"></i> Menzil Karşılaştırması</h4>
+            </div>
+            <div class="card-body">
+                <canvas id="rangeChart"></canvas>
+            </div>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">© 2023 EVCompare - Türkiye'nin Elektrikli Araç Platformu</p>
+            <div class="mt-2">
+                <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS + Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Kendi JS Dosyamız -->
     <script src="script.js"></script>
 </body>
