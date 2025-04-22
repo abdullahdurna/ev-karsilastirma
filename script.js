@@ -7,7 +7,7 @@ const cars = {
         charge: "30 dk (%10-80, DC 180 kW)",
         power: "320 HP",
         price: "1.250.000 TL",
-        image: "https://www.togg.com.tr/wp-content/uploads/2022/10/T10X-1200x900.jpg",
+        image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.togg.com.tr%2Fprice-list&psig=AOvVaw0UNtCGlGQcT3NRrW0PmIK7&ust=1745391470180000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNiNp4eI64wDFQAAAAAdAAAAABAE",
         type: "suv"
     },
     tesla: {
