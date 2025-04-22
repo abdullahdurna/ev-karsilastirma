@@ -1,32 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <title>EV Karşılaştırma</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ EV Karşılaştırma Aracı</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { padding: 20px; }
-        .car-card { border: 1px solid #ddd; padding: 15px; margin: 10px; border-radius: 10px; }
+        body { background-color: #f8f9fa; padding-top: 20px; }
+        .card { border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .card-header { background-color: #0d6efd; color: white; border-radius: 15px 15px 0 0 !important; }
+        h1 { color: #0d6efd; margin-bottom: 30px; }
+        select { margin-bottom: 20px; }
     </style>
 </head>
 <body>
-    <h1 class="text-center my-4">⚡ TOGG vs Tesla</h1>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="car-card">
-                <h3>TOGG T10X</h3>
-                <p><strong>Menzil:</strong> 523 km</p>
-                <p><strong>Batarya:</strong> 88 kWh</p>
-                <p><strong>Hızlı Şarj:</strong> 30 dk (%10-80)</p>
+    <div class="container">
+        <h1 class="text-center mb-4">⚡ Elektrikli Araç Karşılaştırma</h1>
+        
+        <div class="row">
+            <!-- Araç 1 -->
+            <div class="col-md-6">
+                <select class="form-select form-select-lg mb-3" id="car1">
+                    <option value="togg">TOGG T10X</option>
+                    <option value="tesla">Tesla Model Y</option>
+                    <option value="mg">MG ZS EV</option>
+                    <option value="renault">Renault Megane E-Tech</option>
+                </select>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 id="car1-name" class="text-center">TOGG T10X</h3>
+                    </div>
+                    <div class="card-body" id="car1-details">
+                        <!-- JS ile dolacak -->
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="car-card">
-                <h3>Tesla Model Y</h3>
-                <p><strong>Menzil:</strong> 455 km</p>
-                <p><strong>Batarya:</strong> 75 kWh</p>
-                <p><strong>Hızlı Şarj:</strong> 25 dk (Supercharger)</p>
+            
+            <!-- Araç 2 -->
+            <div class="col-md-6">
+                <select class="form-select form-select-lg mb-3" id="car2">
+                    <option value="tesla">Tesla Model Y</option>
+                    <option value="togg">TOGG T10X</option>
+                    <option value="mg">MG ZS EV</option>
+                    <option value="renault">Renault Megane E-Tech</option>
+                </select>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 id="car2-name" class="text-center">Tesla Model Y</h3>
+                    </div>
+                    <div class="card-body" id="car2-details">
+                        <!-- JS ile dolacak -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Kendi JS Dosyamız -->
+    <script src="script.js"></script>
 </body>
 </html>
